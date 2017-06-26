@@ -6,7 +6,12 @@ var History = require('./models/history');
 var Bing = require('node-bing-api')({ accKey: "4ab617ba281b42e0b3e86e3353486106" });
 
 
-mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://vikashhrs:12345@ds139362.mlab.com:39362/imagesearch2017');
+
+app.get('/',function(req,res){
+	res.send("<h1>Welcome to Image Search Abstraction Layer</h1>");
+});
 
 app.get('/imagesearch/:query',function(request,response){
  	Bing.images(request.params.query, {
